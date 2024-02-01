@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Weather Report</title>
+    <link
+      href="{{ url_for('static', filename='weather.css') }}"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body>
+    <h1>Weather Report</h1>
+    {% for location in locations %}
+    <h2>{{ location.locationName }}</h2>
+    <form action="{{ url_for('weather-page-endpoint') }}" method="POST">
+        <label for="locationSelect">Choose a location:</label>
+        <select name="location" id="locationSelect">
+            {% for location in locations %}
+                <option value="{{ location_name }}" {% if location_name == selected_location %}selected{% endif %}>
+                    {{ location_name }}
+                </option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Get Weather">
+    </form>
+    <table>
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Weather</th>
+          <th>Temperature</th>
+          <th>Pop</th>
+          <th>CI</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for time_idx in range(location.weatherElement[0].time|length) %}
+        <tr>
+          <td>
+            {{ location.weatherElement[0].time[time_idx].startTime }} - {{
+            location.weatherElement[0].time[time_idx].endTime }}
+          </td>
+          <td>
+            {{ location.weatherElement[0].time[time_idx].parameter.parameterName
+            }}
+          </td>
+          <td>
+            {{ location.weatherElement[2].time[time_idx].parameter.parameterName
+            }}°C - {{
+            location.weatherElement[4].time[time_idx].parameter.parameterName
+            }}°C
+          </td>
+          <td>
+            {{ location.weatherElement[1].time[time_idx].parameter.parameterName
+            }}%
+          </td>
+          <td>
+            {{ location.weatherElement[3].time[time_idx].parameter.parameterName
+            }}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endfor %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/api/locations')
+                .then(response => response.json())
+                .then(data => {
+                    const selectElement = document.getElementById('locationSelect');
+                    data.forEach(location => {
+                        const optionElement = document.createElement('option');
+                        optionElement.textContent = location;
+                        optionElement.value = location;
+                        selectElement.appendChild(optionElement);
+                    });
+                });
+        });
+    </script>
+  </body>
+</html>

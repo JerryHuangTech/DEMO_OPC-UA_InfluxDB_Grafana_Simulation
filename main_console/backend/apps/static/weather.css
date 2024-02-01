@@ -1,0 +1,107 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+h2 {
+  background-color: #79a6d2;
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #79a6d2;
+  color: white;
+  font-weight: normal;
+}
+
+tr:hover {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+td {
+  font-size: 0.95em;
+}
+
+.weather-report-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 样式选择菜单 */
+select {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #79a6d2;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  color: #333;
+  font-family: "Arial", sans-serif;
+}
+
+/* 样式提交按钮 */
+input[type="submit"] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #79a6d2;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #5682a3;
+}
+
+/* 调整表单元素的对齐 */
+form {
+  text-align: center; /* 水平居中表单元素 */
+  margin-bottom: 20px;
+}
+
+/* 如果您有一个包裹表单的容器，您也可以使用 flexbox 来对齐它们 */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 可选：为选择菜单添加过渡动画 */
+select, input[type="submit"] {
+  transition: all 0.3s ease;
+}
