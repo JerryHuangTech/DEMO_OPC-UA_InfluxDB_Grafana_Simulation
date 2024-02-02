@@ -14,18 +14,18 @@
 ### 模擬 Docker 使用
 
 本專案會透過 docker-compose 模擬 Docker 建立 Grafana 與 InfluxDB 
-![](.\docker-IoT\doc\1setup.png)
+![](./docker-IoT/doc/1setup.png)
 
 
 ### 模擬 OPC UA Server 與 IoT Hub 通訊
 
 本專案設置兩個 OPC UA Server ，並基於OPC UA統一與IoT Hub通訊
-![](.\opc_ua_similar_server\Doc\0.png)
+![](./opc_ua_similar_server/Doc/0.png)
 
 本專案會模擬寫入時序資料庫 InfluxDB
-![](.\opc_ua_similar_server\Doc\1.png)
+![](./opc_ua_similar_server/Doc/1.png)
 
 
 ### 模擬 Grafana 應用
 
-![](.\docker-IoT\doc\4-1.png)
+![](./docker-IoT/doc/4-1.png)
